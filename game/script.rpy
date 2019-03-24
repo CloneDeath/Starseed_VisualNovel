@@ -15,6 +15,17 @@ define medic = Character("Medical Team Member")
 
 define reporter = Character("Reporter", color="#816271")
 
+transform left:
+    yalign 0.30
+
+transform right:
+    yalign 0.30
+    xalign 1.0
+
+transform center:
+    yalign 0.30
+    xalign 0.5
+
 label start:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -22,63 +33,94 @@ label start:
 
     scene bg room
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    #show eileen happy
-
     "You wake up to the sound of someone yelling and banging what sounds like a frying pan."
     
+    show private at center
     private "Everyone, up up up! Get up!"
+    hide private
     
+    show jacobs at right
     "Jacobs bursts into your bedroom."
     jacobs "Love, get up. We've finally got them!"
+    hide jacobs
     
     "You get out of bed and head to the command center."
+    show jacobs at right
     jacobs "A transport ship managed to trigger their silent alarm. The bandits don't even know we're coming."
     
     show love at left
     love "Awesome, let's go get them!"
 
+    hide love
+    hide jacobs
     "After a fierce chase, you and your crew land a few hits on them, but they manage to get away."
+    show love mad at left
     love "We lost them!"
+    show jacobs at right
     jacobs "It's fine. It happens. Maybe it'll scare them off for good?"
     love "I doubt it."
     pause
     jacobs "Hey, let's call it a night and dock. We'll try again tomorrow."
     love "Alright..."
+    hide love
+    hide jacobs
     
     "You and your crew land on the planet."
     "After lunch, you and Jacobs wander around town, when you spot a small family shop."
     "You buy some local souvenirs, when you realize you forgot your coat back at the restaurant."
+    show love at left
     love "I'll meet you back at the base. I won't be long."
-    jacobs "Be back in time for dinner!"
+    show jacobs at right
+    jacobs "Alright, be back in time for dinner!"
+    hide jacobs
     
     "You head your separate ways, retracing your steps."
-    
     love "Wow, it sure is crowded at night."
     "You bump into someone."
+    show love at center
+    show thug1 at left
     thug1 "Ey, watch where ye'r goin'."
     love "Sorry."
+    show thug2 at right
     thug2 "Yeah missss, you gotta keep your eyesss open."
     "A third thug butts in."
+    show thug1 at left:
+        xalign 0.0
+    show love mad at center:
+        xalign 0.3
+    show thug2 at right:
+        xalign 0.6
+    show thug3 at right:
+        xalign 1.0
     thug3 "Hey, you ain't from around here, are's ya?"
     "Scared, you back up. But the thugs keep getting closer, invading your personal space."
     love "Hey, umm... I'm sorry..."
     thug1 "Sorry ain't gunna' cut it."
     "You look around, and realize you're in an alley way."
     thug2 "Tisssk tisssk, ain't nowhere to run sssweety."
+    hide love
+    hide thug1
+    hide thug2
+    hide thug3
     
+    show gray at center:
+        yalign .05
     kid "Hey, is there some sort of a problem here?"
-    thug3 "Keep walking, kid."
-    "The blue haired thug turns back to you."
-    thug3 "Ow! What the..."
+    show thug2 at left
+    show gray at right:
+        yalign .05
+    thug2 "Keep walking, kid."
+    hide gray
+    show thug2 at center
+    "The green haired thug turns back to you."
+    thug2 "Ow! What the..."
+    show thug2 at left
+    show gray at right
     "The kid had thrown a rock at the thug."
     
     "The thug with green hair pulls out a knife."
     thug1 "Oi brat, ya hurt me friend sumfin' nasty."
-    "The green haired Thug manages to grab the kid."
+    "The green haired thug manages to grab the kid."
     thug2 "You gotta learn sssome mannersss kid..."
     thug2 "And I got sssome learning you won't forget..."
     "The green haired thug hisses at the kid"
