@@ -37,6 +37,8 @@ label start:
     
     "You get out of bed and head to the command center."
     jacobs "A transport ship managed to trigger their silent alarm. The bandits don't even know we're coming."
+    
+    show love at left
     love "Awesome, let's go get them!"
 
     "After a fierce chase, you and your crew land a few hits on them, but they manage to get away."
