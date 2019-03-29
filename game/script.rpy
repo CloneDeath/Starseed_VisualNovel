@@ -1,19 +1,20 @@
 ﻿define love = Character("Love")
-define jacobs = Character("Jacobs")
-define kid = Character("Random Kid", color="#c3a38a")
-define gray = Character("Grayson", color="#997577")
-define max = Character("Max", color="#c3a38a")
+define jacobs = Character("Jacobs", color="#75bb75")
+define kid = Character("Random Kid", color="#999999")
+define gray = Character("Grayson", color="#999999")
+define max = Character("Max", color="#ffffff")
 define patty = Character("Mrs. Patricia", color="#c3a38a")
-define private = Character("Private Aaron")
+define private = Character("Private Aaron", color="#757575")
 
 define thug1 = Character("Red Haired Thug", color="#ff0000")
 define thug2 = Character("Green Haired Thug", color="#00ff00")
 define thug3 = Character("Blue Haired Thug", color="#4444ff")
 
-define biker = Character("Biker", color="#816271")
-define medic = Character("Medical Team Member")
+define biker = Character("Biker", color="#bb8133")
+define medic = Character("Medical Team Member", color="#ff9999")
 
 define reporter = Character("Reporter", color="#816271")
+define businessman = Character("Businessman", color="#505050")
 
 transform left:
     yalign 0.30
@@ -63,7 +64,7 @@ label start:
     show love at left
     love "Awesome, let's go get them!"
 
-    scene bg command center chase
+    scene bg command center chase laser
     "After a fierce chase, you and your crew land a few hits on them, but they manage to get away."
     
     scene bg command center
@@ -142,44 +143,71 @@ label start:
     "The kid had thrown a rock at the thug."
     
     show thug2 at center with move
-    "The thug with green hair pulls out a knife."
+    "The green haired thug pulls out a knife."
     show thug1 at left
     thug1 "Oi brat, ya hurt me friend sumfin' nasty."
     show thug2:
         xalign 0.8
     with move
     "The green haired thug manages to grab the kid."
-    thug2 "You gotta learn sssome mannersss kid..."
+    thug2 "You gotta learn sssome mannersss..."
     thug2 "And I got sssome learning you won't forget..."
     "The green haired thug hisses at the kid."
-    show thug3 at center
-    thug3 "Cut his ear off! That'll show the kid!"
+    show thug3 at center:
+        xalign 0.3
+    thug3 "Cut his ear off! That'll show the brat!"
     "The kid begins to cry."
     
+    scene bg alley
+    show max angry at right
     max "Let go of my {b}brother!{/b}"
+    show thug2 at left
+    with None
+    show max angry at left:
+        xalign 0.3
+    with move
     "Max comes in swinging, knocking out the thug with the knife, and kicks it away."
+    hide thug2 with dissolve
     max "Grayson, go get help! Hurry!"
+    show gray at gright
     "The kid nods, wiping away his tears, and runs off."
+    hide gray
+    hide max
     
+    show thug1 at center
     thug1 "You gotta lotta nerve guy..."
+    hide thug1
+    
     "You see your chance, and take it!"
+    show thug3 at center
+    show love mad at left:
+        linear 0.2 xalign 0.3
     love "Hiya!"
     "You kick the blue haired thug in the shin, and sock him in the face, he falls down."
+    show thug3:
+        linear 0.3 rotate 45.0
     thug3 "Auauauaughhghh... What the hell happened?"
+    hide thug3 with dissolve
     "Distracted, Max sucker punches the thug with red hair."
+    show max angry at center:
+        xalign 0.7
     max "C'mon!"
-    
     "You run past the thugs. Max grabs your hand, and the two of you run into the crowd."
+    
+    scene bg town night
     "It isn't long before you find Grayson talking to some confused men in business suits."
     
+    show max at center
     max "Grayson! There you are!"
+    show gray at gleft
     gray "Brother! I found help!"
-    "Businessman" "Like I said, I don't think we're equipped to help, you really should find a..."
+    businessman "Like I said, I don't think we're equipped to help, you really should find a..."
     
     max "No problem, sir. Sorry to bother you, but we've got it covered now. Thank you so much for your time."
     "The businessmen, confused, shrug and walk off."
     "Max looks to you."
     max "You should head home, you've had a rough time. Where do you live?"
+    show love at right
     love "Not far... But, it's fine, I can-"
     gray "Hey, don't I get some sort of a reward???"
     max "Grayson!"
@@ -190,8 +218,11 @@ label start:
     gray "awww..."
     "You and Max laugh."
     
+    scene bg command center
     "Once you get back to the base, you tell Jacobs about the event."
+    show love at left
     love "What was his name again?... Max!"
+    show jacobs at right
     jacobs "Wow. Who knew the criminals here were so brave to try and mug an officer!"
     love "Ha ha, yeah..."
     "You spend the next few uneventful days in space, no bandit attacks."
@@ -211,24 +242,39 @@ label start:
     jacobs "We found him!"
     love "What? Where?"
     
+    scene bg command center chase
     "You and your crew approach, but the ship fires blindly towards you and runs. Another pursuit ensues."
-    "While flying, a cargo ship gets stuck in the crossfire, and is destroyed."
+    
+    scene bg command center chase cargo
+    "While flying, a cargo ship gets stuck in the crossfire..."
+    
+    scene bg command center chase explosion
+    "...and is destroyed."
+    
+    scene bg command center
     "This gives the bandits a chance to escape, as you search for survivors."
     "There are none."
     
+    show jacobs at center
     jacobs "We'll keep looking for duplicate signatures, you need some time off."
     
+    scene bg ship landing
     "You return back to the planet to take a day of vacation."
     
+    scene bg town
+    show love at center
     love "I was hoping we'd cross paths again, but..."
     "You spot a child with his nose pressed against a toystore window"
     love "Grayson? Grayson is that you!"
     "You run over, but... no. It's just some random kid."
     love "Sorry."
-    
     "Your brief day-long vacation is over, and you head back to the ship."
+    
+    scene bg command center
     "As soon as you arrive, Jacobs flags you down."
+    show jacobs at right
     jacobs "We've got him. They're cycling their signatures now, using docked ships to avoid duplication."
+    show love at left
     love "How do we know?"
     jacobs "Log Deltas. I've gone ahead and set up a program to..."
     "You don't understand any of the techno-mumbo-jumbo he's saying."
@@ -246,30 +292,43 @@ label start:
     love "Can we get a closer look?"
     jacobs "Sure"
     pause
+    scene bg command center chase
+    show jacobs at right
+    show love at left
     jacobs "aaaand we've been spotted."
     
-    "A the ship attempts to flee and you pursue."
-    love "Private Aaron:"
+    "The ship attempts to flee and you pursue."
+    love "Private Aaron!"
+    show private at center
     private "Yes mam?"
     love "Keep an extra eye out for civilians. Make sure none come between us. I..."
     love "I don't want a repeat of last time."
     private "Yes mam!"
+    hide private
     
     "The pursuit continues, until they are cornered."
     love "Aim for their engines."
     
+    scene bg command center chase laser
+    show jacobs at right
+    show love at left
     "The enemy ship jerks, and your team misses their engines. Unfortunately, for them, it hits their hull, doing massive damage."
     love "Hail them again, demand surrender."
-    love "Private Aaron:"
+    love "Private Aaron!"
+    show private at center
     private "Me?"
     private "Ahem... I mean..."
     private "Yes mam?"
     love "Get medics on standby."
-    private "But... no one is hurt. Everyone is fine..."
+    private "But... "
+    private "No one is hurt. Everyone is fine..."
     jacobs "Not for us you idiot! Them! We want them in custody, not dead!"
     private "R-... right!"
     "Private Aaron runs off."
     
+    scene bg command center chase
+    show jacobs at right
+    show love at left
     jacobs "Captain! Look!"
     "The bandit craft shuts down, and motion can be seen inside through some windows."
     
@@ -290,16 +349,25 @@ label start:
     jacobs "This will at least stop him from plundering trade ships."
     love "Yes. But this is the third time we've let the same bandit get away..."
     
+    scene bg ship landing
     "After a few more uneventful days, Love docks back onto the surface for her scheduled leave."
     
+    scene bg town
+    show love at left
     love "I can't believe I let him get away..."
+    show max cast at right
     max "Let who get away?"
     love "Max! I- I didn't think I'd see you again!"
     max "Heh, why? What's up?"
     love "I never got to thank you... you and your brother..."
+    show gray at gcenter
     gray "You can thank me with icecream!"
     "Everyone laughs, and you all agree to get some icecream."
-    "Grayson eventually heads home, leaving you and Max to share a nice evening in the park."
+    
+    scene bg town night
+    show love at left
+    show max cast at right
+    "Grayson eventually heads home, leaving you and Max alone to share a warm evening in the park."
     
     love "I forgot to ask, what happened to your arm?"
     "Max's arm is in a cast."
@@ -319,6 +387,7 @@ label start:
     max "Yeah?"
     love "What... What exact--"
     "Love is cut off by someone yelling in the distance."
+    show gray at gcenter
     gray "Max! Max! He's back! And he's causing a scene!"
     max "Not this guy again. Umm... this won't take long."
     "Max gets up"
@@ -326,10 +395,14 @@ label start:
     "You agree"
     
     "Max grabs your hand and leads you out of the park, back into town."
+    
+    scene bg town night
+    show max cast at right
     max "Sorry, we gotta get there quick."
     "You nearly trip over the un-even sidewalk. You're definitely in the rundown part of town."
     
     max "Hey, asshole!"
+    show biker at left
     biker "Wha? Who you calling asshole?"
     max "You, asshole! I told you, you're not welcome here anymore! We've given you enough chances, now scram!"
     biker "Look. Max. Listen..."
@@ -342,16 +415,21 @@ label start:
     biker "Hmm?"
     max "Next week. One more chance. ONE."
     "The biker smiles, starts up his bike, and heads off."
+    hide biker
     
+    show love at left
     love "Um... what was that about?"
     max "Him? He's just got a few too many knocks to his head. Can't quite tell right from wrong anymore."
     
     "You follow Max into the shop, and..."
+    
+    scene bg kitchen
     "You're overwhelmed with the most delicious smells! Spices! Herbs! Cheeses!"
-    
+    show gray at gcenter
     gray "Today's 'Italy day'!"
+    show max cast at right
     max "It's called 'Italian Day' Grayson. Today we're serving Italian food, specifically, spaghetti and garlic bread."
-    
+    show love at left
     love "It's... a homeless shelter?"
     max "Yeah, and a Kitchen. I've been volunteering here lately. It's not much, but it's good work!"
     gray "The place was about to shut down before Max and I stepped in!"
@@ -365,10 +443,17 @@ label start:
     max "Ha... I'm... still working on convincing him out of that one."
     "Everyone laughs."
     
+    scene bg kitchen with dissolve
     "Love spends the next few days with Max, volunteering at the shelter, and growing ever closer."
+    
+    scene bg town night
     "They spend the final evening of her leave in the park, watching the sun set."
     
+    show love at left:
+        xalign 0.3
     love "I can't believe this is my last day."
+    show max at right:
+        xalign 0.7
     max "So what? You'll be back after another week. And I'll be here, waiting for you."
     love "Waiting for me?"
     max "I mean--"
@@ -376,29 +461,41 @@ label start:
     max "I mean me and Grayson, and Mrs. Patricia... you've helped out so much these past couple days."
     "You blush."
     
-    love "Well. I better be off."
+    love "Well..."
+    love "I better be off."
     max "Yeah. I'll... I'll miss you."
     pause
+    show gray at gright
     gray "Are you two going to kiss now?"
     max "Grayson! What are you doing here!"
     gray "Mrs. Patricia said I should keep an eye on you two, and make sure you don't get into trouble."
     max "Get out of here! I'll be home soon."
+    hide gray with dissolve
     "Grayson runs off"
     love "I guess..."
     max "I guess this is goodbye, I'll..."
-    love "I'll see you in a week"
+    love "I'll see you in a week."
     "You two hold hands. And..."
+    hide max with dissolve
     "He lets go..."
+    hide love with dissolve
     "And you walk away..."
+    pause
     
+    scene bg bedroom
     "You think about him that night, for the rest of the night."
+    show love at right
     love "When I get back... I'll tell him. I'll tell him how I feel."
+    hide love with dissolve
     
     "A couple days pass. Nothing interesting happens."
     
+    scene bg command center
+    show jacobs at right
     jacobs "Um... hmmm... this is odd"
+    show love at left
     love "What is it?"
-    jacobs "This ship doesn't match it's signature. It's off..."
+    jacobs "That ship, over there... it doesn't match its signature. It's off..."
     love "So? Maybe the signal-"
     jacobs "There's more... it looks like this ship was recently stolen from a junkyard."
     love "So... Just to be clear: Someone stole a hunk-of-junk, and doesn't want anyone to know?"
