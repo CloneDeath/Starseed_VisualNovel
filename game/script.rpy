@@ -502,9 +502,15 @@ label start:
     jacobs "Yup"
     love "Let's flag him down!"
     
+    scene bg command center chase junk
     "As your crew approaches, the ship notices, and takes off."
+    show love at left
     love "Are you serious?"
+    show jacobs at right
     jacobs "It's clearly a stolen vehicle, the punishment for that is pretty stiff. What did you expect?"
+    scene bg command center chase junk busy
+    show love at left
+    show jacobs at right
     love "The place is extremely crowded."
     love "Last time... someone got in the way..."
     jacobs "I know."
@@ -512,22 +518,38 @@ label start:
     jacobs "I know."
     love "..."
     love "...let him go."
+    scene bg command center busy
+    show love at left
+    show jacobs at right
     pause
     jacobs "I agree, captain."
+    hide jacobs
+    show private at right 
+    with dissolve
     private "... Me too captain. I don't think it's worth the risk."
+    hide private
+    with dissolve
     love "Thanks. I... I believe we did the right thing."
+    
+    scene bg command center
+    with dissolve
     "You spend the rest of the day thinking about the incident. Was it the right thing?"
     
+    show jacobs at right
     jacobs "We've got a problem."
+    show love at left
     love "What's up?"
     jacobs "We've got an emergency report, a transport ship has been robbed."
     jacobs "Seems there was a struggle. One casualty, the pilot."
     love "These asshole bandits.. They just don't care..."
     love "You heard him crew, let's go!"
+    show private at center
     private "Yes m'am!"
+    hide private
     jacobs "There's... there's more Love."
     love "What is it?"
     jacobs "According to the co-pilot, the bandit's vehicle matches the description of the... um... \"hunk of junk\" we let go earlier."
+    show love mad at left 
     pause
     jacobs "Are you... Are you okay Love?"
     love "Yes. Let's... Let's just do our job, okay?"
@@ -538,9 +560,13 @@ label start:
     jacobs "Here, on the edge of our scanners, a signal change. I saw it with my own eyes. The logs confirm."
     jacobs "This vehicle is illegally changing signals."
     love "Let's go."
+    
+    scene bg command center chase junk
     "You approach the signal, and the ship quickly comes into view."
     
+    show love mad at left
     love "That's it. That's him."
+    show jacobs at right
     jacobs "What do we do? We haven't been noticed."
     love "Send a message. Tell him to surrender."
     jacobs "... Yes mam."
@@ -550,13 +576,22 @@ label start:
     jacobs "The ship, it's engines are starting up. I believe it's trying to flee."
     love "Open fire."
     jacobs "Roger."
+    
+    scene bg command center junk damage
+    with hpunch
+    
     "Your crew gives off a warning shot, but causes severe damage to the ship."
+    
+    show love mad at left
     love "What happened!?!"
+    show jacobs at right
     jacobs "Umm... It.. It looks like the ship has no shields."
     love "What the hell??? It's illegal to fly a ship without even basic shielding! What if a piece of space junk hit him?"
     jacobs "Love, the ship was stolen from a junkyard... maybe the thief didn't know..."
     love "Get a medical team out there right away! We need to make sure he's alive, and in custody. NOW!"
     
+    scene bg command center junk damage
+    with dissolve
     "Everyone scatters, as Love listens closely to their transmissions."
     
     medic "This looks bad."
@@ -572,24 +607,34 @@ label start:
     medic "That's it. One casualty, and no survivors."
     
     "Love is visibly pissed."
+    show jacobs at right
     jacobs "To be fair... the transport... he... I mean, he did..."
-    love "That's no excuse. We made {b}SO{/b} many mistakes today. I can't even begin to think about all this."
+    show love mad at left
+    love "That's no excuse. We made {i}SO{/i} many mistakes today. I can't even begin to think about all this."
     
-    "The rest of week passes without incident."
+    scene bg command center
+    "The rest of the week passes without incident."
     "There was a judicial review of the events that unfolded."
     "The crew is not found accountable for either death."
     "\"There's no way anyone could have known\""
     "Despite this, a controversy persists in the media for days."
-    "Love and her crew refuse to talk to the press."
+    "You and your crew refuse to talk to the press."
     
+    scene bg ship landing
     "You and Jacobs take your leave a day early, heading back to the planet."
+    
+    scene bg town
     "You head directly to the shelter."
     "All you can think about is what you've done... and Max."
     "Would he forgive you? Could he?"
     "You slow down... take your time."
     "You're just delaying the inevitable."
+    
+    scene bg kitchen
     "But, eventually, you get there. The shelter."
+    show gray at gright
     gray "Love! You're back early!"
+    show love at left
     love "Yes, I am."
     "She forces a smile."
     love "Where's max?"
@@ -610,18 +655,18 @@ label start:
     "He sits back down."
     
     love "What... what is it Mrs. Patricia?"
-    patty "... did, Max ever tell you what he did?"
+    patty "... did, Max ever tell you what he did for a living?"
     love "Yes... he volunteers here. He feeds the homeless. He helped save the place."
     "Mrs. Patricia's eyes begin to well up as she smiles."
     patty "Yes. Yes he did..."
-    patty "Did he ever tell you how he saved the place?"
+    patty "Did he ever tell you {i}how{/i} he saved the place?"
     love "No."
     patty "Love. I... I don't know what to say."
     love "What... Why? What happened?"
     patty "Max. He's a good kid. His heart was always in the right place."
     patty "We had no money. We had no way to buy food. We could barely afford rent as it is."
     patty "I could have just gotten another job, but..."
-    patty "All those hungry people that come by everyday... the starving poor..."
+    patty "All those hungry people that come by here everyday... the starving poor..."
     patty "Some of them are children..."
     patty "Then, one day, Max kicks in the door..."
     "Mrs. Patricia smiles"
@@ -674,8 +719,8 @@ label start:
     "She begins to tear up again."
     patty "He... stole a ship from some junkyard."
     patty "He specifically picked out the \"biggest piece of junk\" there was. Something no one would miss."
-    patty "\"Just think of it as borrowing.\" he said \"I {b}will{/b} give it back, I {b}promise{/b}. No one will even know it went missing.\""
-    patty "I... I don't know {i}exactly{/i} what happened after that."
+    patty "\"Just think of it as borrowing.\" he said \"I {i}will{/i} give it back, I {i}promise{/i}. No one will even know it went missing.\""
+    patty "I... I don't know exactly what happened after that."
     patty "But, based on the news... I guess there was a struggle."
     patty "Someone got killed."
     patty "Because of that... They... the officers... they killed him."
