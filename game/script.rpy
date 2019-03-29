@@ -25,13 +25,24 @@ transform right:
 transform center:
     yalign 0.30
     xalign 0.5
+    
+transform gleft:
+    yalign 0.0
+
+transform gright:
+    yalign 0.0
+    xalign 1.0
+
+transform gcenter:
+    yalign 0.0
+    xalign 0.5
 
 label start:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene bg bedroom
 
     "You wake up to the sound of someone yelling and banging what sounds like a frying pan."
     
@@ -45,15 +56,17 @@ label start:
     hide jacobs
     
     "You get out of bed and head to the command center."
+    
+    scene bg command center
     show jacobs at right
     jacobs "A transport ship managed to trigger their silent alarm. The bandits don't even know we're coming."
-    
     show love at left
     love "Awesome, let's go get them!"
 
-    hide love
-    hide jacobs
+    scene bg command center chase
     "After a fierce chase, you and your crew land a few hits on them, but they manage to get away."
+    
+    scene bg command center
     show love mad at left
     love "We lost them!"
     show jacobs at right
@@ -62,18 +75,20 @@ label start:
     pause
     jacobs "Hey, let's call it a night and dock. We'll try again tomorrow."
     love "Alright..."
-    hide love
-    hide jacobs
     
+    scene bg ship landing
     "You and your crew land on the planet."
+    
+    scene bg town
     "After lunch, you and Jacobs wander around town, when you spot a small family shop."
     "You buy some local souvenirs, when you realize you forgot your coat back at the restaurant."
     show love at left
     love "I'll meet you back at the base. I won't be long."
     show jacobs at right
     jacobs "Alright, be back in time for dinner!"
-    hide jacobs
     
+    scene bg town night
+    show love at left
     "You head your separate ways, retracing your steps."
     love "Wow, it sure is crowded at night."
     "You bump into someone."
@@ -96,35 +111,49 @@ label start:
     "Scared, you back up. But the thugs keep getting closer, invading your personal space."
     love "Hey, umm... I'm sorry..."
     thug1 "Sorry ain't gunna' cut it."
-    "You look around, and realize you're in an alley way."
+    
+    scene bg alley
+    show thug1 at left:
+        xalign 0.0
+    show love mad at center:
+        xalign 0.3
+    show thug2 at right:
+        xalign 0.6
+    show thug3 at right:
+        xalign 1.0
+    "You look around, and realize you've backed yourself into an alley way."
     thug2 "Tisssk tisssk, ain't nowhere to run sssweety."
     hide love
     hide thug1
     hide thug2
     hide thug3
     
-    show gray at center:
-        yalign .05
+    show gray at gright
     kid "Hey, is there some sort of a problem here?"
     show thug2 at left
-    show gray at right:
-        yalign .05
+    show gray at gright
     thug2 "Keep walking, kid."
     hide gray
-    show thug2 at center
     "The green haired thug turns back to you."
+    
+    show thug2 at left with hpunch
     thug2 "Ow! What the..."
-    show thug2 at left
-    show gray at right
+    show gray at gright
     "The kid had thrown a rock at the thug."
     
+    show thug2 at center with move
     "The thug with green hair pulls out a knife."
+    show thug1 at left
     thug1 "Oi brat, ya hurt me friend sumfin' nasty."
+    show thug2:
+        xalign 0.8
+    with move
     "The green haired thug manages to grab the kid."
     thug2 "You gotta learn sssome mannersss kid..."
     thug2 "And I got sssome learning you won't forget..."
-    "The green haired thug hisses at the kid"
-    thug3 "Cut his ear off! That'll show the punk!"
+    "The green haired thug hisses at the kid."
+    show thug3 at center
+    thug3 "Cut his ear off! That'll show the kid!"
     "The kid begins to cry."
     
     max "Let go of my {b}brother!{/b}"
