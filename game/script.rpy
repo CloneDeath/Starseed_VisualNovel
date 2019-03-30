@@ -632,11 +632,11 @@ label start:
     
     scene bg kitchen
     "But, eventually, you get there. The shelter."
-    show gray at gright
+    show gray at gcenter
     gray "Love! You're back early!"
     show love at left
     love "Yes, I am."
-    "She forces a smile."
+    "You force a smile."
     love "Where's max?"
     gray "He still isn't back. He went on some errand for Mrs. Patricia."
     love "Right..."
@@ -644,6 +644,7 @@ label start:
     "A few hours pass, when Love finally spots Mrs. Patricia."
     
     love "Patty! Hey!"
+    show patty at right
     patty "Hello Love! You're back early!"
     love "Yes, I couldn't wait. Where's Max? I haven't seem him all day."
     "The smile leaves Mrs. Patricia's face"
@@ -652,6 +653,7 @@ label start:
     patty "No, you stay right there Mr."
     patty "Us adults need a moment to talk."
     gray "Aw man..."
+    hide gray with dissolve
     "He sits back down."
     
     love "What... what is it Mrs. Patricia?"
@@ -689,6 +691,7 @@ label start:
     "You see a shadow move beneath the door."
     patty "Grayson...!"
     "The door slowly opens."
+    show gray at gcenter with dissolve
     gray "Yes, mam?"
     patty "Were you evesdropping again?"
     gray "Yes mam..."
@@ -732,16 +735,27 @@ label start:
     "Mrs. Patricia begins crying"
     patty "Your brother. Max. Max is dead."
     pause
+    
+    scene bg town night
+    show love at center
     "You race back to the base, as fast as your legs can carry you."
     "Mrs. Patricia calls after you, but you keep running."
     love "No. No... I couldn't have... I didn't... I didn't know."
+    show max at left
     "Out of the corner of your eye, you see his face."
     love "Max!"
+    
+    scene bg tv
+    show max at left:
+        xalign 0.2
+        yalign 0.1
+    with Pixellate(0.2, 3)
     "The television screen flickers as the reporter continues..."
     reporter "... killing young Max."
     reporter "We tried reaching out to Captain Love Sonos and her crew, but they refused to comment on the event."
     pause
+    
+    scene bg black
     "Love weeps."
     "{b}The end.{/b}"
-    pause
     return
