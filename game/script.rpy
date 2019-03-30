@@ -301,7 +301,7 @@ label start:
     love "Private Aaron!"
     show private at center
     private "Yes mam?"
-    love "Keep an extra eye out for civilians. Make sure none come between us. I..."
+    love "Keep an extra eye out for civilians. Make sure no one comes between us. I..."
     love "I don't want a repeat of last time."
     private "Yes mam!"
     hide private
